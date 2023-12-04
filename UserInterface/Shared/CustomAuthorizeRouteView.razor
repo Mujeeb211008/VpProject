@@ -1,0 +1,40 @@
+﻿@using UserInterface.Auth;
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager nm
+@using System.Security.Claims
+
+
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <MainLayout RouteData="@RouteData" DefaultLayout="typeof(MainLayout)" />
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="User">
+    <Authorized>
+        <UserLayout RouteData="@RouteData" DefaultLayout="typeof(UserLayout)" />
+    </Authorized>
+</AuthorizeView>
+
+<NotAuthorized>
+    You are not authorized to access this page.
+</NotAuthorized>
+
+<Authorizing>
+    Authorizing...
+</Authorizing>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? authenticationState { get; set; }
+    string RouteData { get; set; }
+    protected override async Task OnInitializedAsync() => await LoadUserData();
+
+    private async Task LoadUserData()
+    {
+        var authState = await authenticationState;
+        RouteData = authState.User.FindFirst(ClaimTypes.Role)?.Value;
+
+    }
+}

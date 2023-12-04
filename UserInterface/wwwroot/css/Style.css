@@ -1,0 +1,20 @@
+﻿.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:black;
+}
+
+
+.left-section {
+    flex: 1; /* Takes as much space as available on the left */
+}
+
+.center-section {
+    flex: 2; /* Takes more space in the center */
+    text-align: center;
+}
+
+.right-section {
+    flex: 1; /* Takes as much space as available on the right */
+}

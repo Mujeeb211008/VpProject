@@ -1,0 +1,79 @@
+﻿@page "/Register"
+
+@using DataAccessLayer;
+@inject NavigationManager nm
+<link href="~/css/Style.css" rel="stylesheet" />
+
+<PageTitle>Index</PageTitle>
+
+<div class="align-items-center border-3 register_user1">
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="form-group">
+            Register Yourself
+        </div>
+    </div>
+</div>
+</div>
+
+<EditForm class="align-items-center border-3 register_user" Model="modelUserInfo" OnSubmit="saveUser">
+    <div class="row mb-3 ">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter First Name" @bind="modelUserInfo.FirstName" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Last Name" @bind="modelUserInfo.LastName" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Phone" @bind="modelUserInfo.Phone" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Email" @bind="modelUserInfo.Email" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Password" @bind="modelUserInfo.Password" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+	[Parameter] public string id { get; set; }
+
+	ModelUserInfo modelUserInfo { get; set; } = new ModelUserInfo();
+
+	private void saveUser()
+	{
+		DalUserInfo.SaveUserInfo(modelUserInfo);
+		nm.NavigateTo("Login");
+	}
+}

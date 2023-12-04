@@ -1,0 +1,22 @@
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.deps.json
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.dll
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.pdb
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.AssemblyInfoInputs.cache
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.AssemblyInfo.cs
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.csproj.CoreCompileInputs.cache
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.dll
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\refint\ModelLayer.dll
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.pdb
+D:\VP Project CarsAndBids\CarsAndBids\ModelLayer\obj\Debug\net7.0\ref\ModelLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.deps.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\bin\Debug\net7.0\ModelLayer.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.AssemblyInfoInputs.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.AssemblyInfo.cs
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\refint\ModelLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ModelLayer.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\ModelLayer\obj\Debug\net7.0\ref\ModelLayer.dll

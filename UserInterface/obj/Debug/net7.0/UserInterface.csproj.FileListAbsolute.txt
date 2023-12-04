@@ -1,0 +1,87 @@
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.AssemblyReference.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.GeneratedMSBuildEditorConfig.editorconfig
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.AssemblyInfoInputs.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.AssemblyInfo.cs
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.CoreCompileInputs.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.MvcApplicationPartsAssemblyInfo.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.RazorAssemblyInfo.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.RazorAssemblyInfo.cs
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\appsettings.Development.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\appsettings.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.staticwebassets.runtime.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.exe
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.deps.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.runtimeconfig.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.pdb
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\System.Data.SqlClient.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\DataAccessLayer.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\ModelLayer.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\DataAccessLayer.pdb
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\bin\Debug\net7.0\ModelLayer.pdb
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.UserInterface.Microsoft.AspNetCore.StaticWebAssets.props
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.build.UserInterface.props
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.UserInterface.props
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.UserInterface.props
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.pack.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.build.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.development.json
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\bundle\UserInterface.styles.css
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\projectbundle\UserInterface.bundle.scp.css
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.CopyComplete
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\refint\UserInterface.dll
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.pdb
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.genruntimeconfig.cache
+D:\VP Project CarsAndBids\CarsAndBids\UserInterface\obj\Debug\net7.0\ref\UserInterface.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\appsettings.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.staticwebassets.runtime.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.exe
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.deps.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.runtimeconfig.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\UserInterface.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\System.Data.SqlClient.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\DataAccessLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\ModelLayer.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\DataAccessLayer.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\bin\Debug\net7.0\ModelLayer.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.AssemblyReference.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.AssemblyInfoInputs.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.AssemblyInfo.cs
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.CoreCompileInputs.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.RazorAssemblyInfo.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.RazorAssemblyInfo.cs
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.UserInterface.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.build.UserInterface.props
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.UserInterface.props
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.UserInterface.props
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\bundle\UserInterface.styles.css
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\projectbundle\UserInterface.bundle.scp.css
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.csproj.CopyComplete
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\refint\UserInterface.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.pdb
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.genruntimeconfig.cache
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\ref\UserInterface.dll
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\UserLayout.razor.rz.scp.css

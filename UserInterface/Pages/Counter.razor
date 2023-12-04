@@ -1,0 +1,31 @@
+﻿@page "/counter"
+@page "/counter/{id}"
+
+@inject NavigationManager nm
+
+<PageTitle>Index</PageTitle>
+your id is @id
+<EditForm Model="modelUserInfo" OnSubmit="SaveUserInfo">
+	<input type="text" placeholder="Enter First Name" @bind-value="modelUserInfo.FirstName" />
+	<input type="text" placeholder="Enter Email Address" @bind-value="modelUserInfo.Email" />
+	<button type="submit">Save</button>
+
+
+</EditForm>
+
+@code {
+	[Parameter] public string id { get; set; }
+
+
+
+	ModelUserInfo modelUserInfo { get; set; } = new ModelUserInfo();
+
+	private void SaveUserInfo()
+	{
+		DalUserInfo.SaveUserInfo(modelUserInfo);
+		nm.NavigateTo("UserInfo");
+
+	}
+
+
+}

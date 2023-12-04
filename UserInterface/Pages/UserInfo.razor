@@ -1,0 +1,67 @@
+﻿@page "/UserInfo"
+@attribute [Authorize(Roles ="Admin")]
+@using ModelLayer
+@using DataAccessLayer
+
+
+
+<h3>User Information</h3>
+<button @onclick="loadUserData">Show Data</button>
+
+@if (modelUserInfo != null)
+{
+	<table  width="100%">
+
+		@foreach (var item in  modelUserInfo)
+		{
+			var userId = item.UserId;
+			<tr>
+
+				<td>@item.UserId</td>
+				<td>@item.FirstName</td>
+				<td>@item.LastName</td>
+				<td>@item.Phone</td>
+				<td>@item.Email</td>
+				<td>@item.Password</td>
+				<td>@item.Role</td>
+				<td>
+					<button class="btn btn-outline-danger btn-sm" @onclick="() => DeleteData(int.Parse(userId))">
+						Delete
+					</button>
+					<a href="UpdateUserInfo/@item.UserId" class=" btn btn-outline-warning btn-sm">Update</a>
+				</td>
+			</tr>
+		}
+    </table>
+}
+
+
+ 
+
+@code {
+
+	List<ModelUserInfo> modelUserInfo { get; set; } = new List<ModelUserInfo>();
+
+	
+
+
+	private void loadUserData ()
+	{
+
+		modelUserInfo = DalUserInfo.GetUserInfo();
+
+	}
+
+	private void DeleteData(int id)
+	{
+		DalUserInfo.DeleteUserInfo(id);
+		loadUserData();
+	}
+
+	private void UpdateUserData()
+	{
+
+		modelUserInfo = DalUserInfo.GetUserInfo();
+
+	}
+}

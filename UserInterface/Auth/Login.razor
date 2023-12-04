@@ -1,0 +1,82 @@
+﻿@page "/login"
+@inject UserAccountService userAccountService
+@inject IJSRuntime js
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager navManager
+<div class="container" style="padding-top: 8%;">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="text-dark">
+				<h1 class="fw-bolder">
+					Welcome To<br />
+					Cars And Bids!
+				</h1>
+				<p class="lead">
+					Revolutionizing purchasing of cars
+				</p>
+				<p class="small"></p>
+				<p class="small"></p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-body">
+					<div>
+						<h1 class="h3 mb-1 mt-4 fw-normal fw-bolder text-dark text-center">Sign in</h1>
+						<p class="lead text-dark">Please use your AU account</p>
+						<div class="form-floating mb-2 mt-3 ">
+							<input type="text" @bind="model.Email" class="form-control"
+								   placeholder="name@example.com" />
+							<label for="floatingInput">Email
+							</label>
+						</div>
+						<div class="form-floating">
+							<input type="password" @bind="model.Password" class="form-control"
+								   placeholder="Password" />
+							<label for="floatingPassword">Password</label>
+						</div>
+						<div class="checkbox mb-3 mt-2 text-dark">
+							<label>
+								<input type="checkbox" value="remember-me" />
+								Remember me
+							</label>
+							<label CssClass="mt-2 text-danger"></label>
+						</div>
+						<button class="w-100 btn btn-lg btn-primary" @onclick="Authenticate">Sign in</button>
+						<p class="mt-5 mb-3 text-dark">&copy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+	private class Model
+	{
+		public string? Email { get; set; }
+		public string? Password { get; set; }
+	}
+	private Model model = new Model();
+	ModelLayer.ModelUserInfo? modelUserAccount = new ModelLayer.ModelUserInfo();
+	private async Task Authenticate()
+	{
+		modelUserAccount = userAccountService.GetByUserName(model.Email, model.Password);
+		if (modelUserAccount.UserId == null || modelUserAccount.FirstName == null)
+		{
+			await js.InvokeVoidAsync("alert", "Invalid email or password");
+			return;
+		}
+		else
+		{
+			var customAuthStateProvier = (CustomAuthenticationStateProvider)authStateProvider;
+			await customAuthStateProvier.UpdateAuthenticatinoState(new UserSession
+				{
+					UserId = modelUserAccount.UserId,
+					FirstName = modelUserAccount.FirstName,
+					Role = modelUserAccount.Role
+				});
+			navManager.NavigateTo("/", true);
+		}
+	}
+}
