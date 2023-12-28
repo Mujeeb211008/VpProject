@@ -1,49 +1,40 @@
-﻿@page "/login"
+﻿@layout LoginLayout
+@page "/login"
 @inject UserAccountService userAccountService
 @inject IJSRuntime js
 @inject AuthenticationStateProvider authStateProvider
 @inject NavigationManager navManager
-<div class="container" style="padding-top: 8%;">
-	<div class="row">
-		<div class="col-md-8">
-			<div class="text-dark">
-				<h1 class="fw-bolder">
-					Welcome To<br />
-					Cars And Bids!
-				</h1>
-				<p class="lead">
-					Revolutionizing purchasing of cars
-				</p>
-				<p class="small"></p>
-				<p class="small"></p>
-			</div>
-		</div>
+<div class="container-fluid">
+	<div class="row justify-content-center align-items-center vh-100">
 		<div class="col-md-4">
-			<div class="card">
-				<div class="card-body">
-					<div>
-						<h1 class="h3 mb-1 mt-4 fw-normal fw-bolder text-dark text-center">Sign in</h1>
-						<p class="lead text-dark">Please use your AU account</p>
-						<div class="form-floating mb-2 mt-3 ">
-							<input type="text" @bind="model.Email" class="form-control"
-								   placeholder="name@example.com" />
-							<label for="floatingInput">Email
-							</label>
+			<!-- Adjusted width to col-md-4 -->
+			<div class="card shadow">
+				<div class="card-body p-5">
+					<h2 class="text-center mb-4">MS Auctions</h2>
+
+					<form>
+						<div class="mb-3">
+							<label for="inputEmail" class="form-label">Email address</label>
+							<input type="email" class="form-control" id="inputEmail" @bind="model.Email" placeholder="name@example.com">
 						</div>
-						<div class="form-floating">
-							<input type="password" @bind="model.Password" class="form-control"
-								   placeholder="Password" />
-							<label for="floatingPassword">Password</label>
+						<div class="mb-3">
+							<label for="inputPassword" class="form-label">Password</label>
+							<input type="password" class="form-control" id="inputPassword" @bind="model.Password" placeholder="Password">
 						</div>
-						<div class="checkbox mb-3 mt-2 text-dark">
-							<label>
-								<input type="checkbox" value="remember-me" />
-								Remember me
-							</label>
-							<label CssClass="mt-2 text-danger"></label>
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" id="rememberMe">
+							<label class="form-check-label" for="rememberMe">Remember me</label>
 						</div>
-						<button class="w-100 btn btn-lg btn-primary" @onclick="Authenticate">Sign in</button>
-						<p class="mt-5 mb-3 text-dark">&copy</p>
+						<button type="button" class="w-100 btn btn-primary" @onclick="Authenticate">Sign in</button>
+					</form>
+
+					<div class="text-center mt-3">
+						<p class="text-muted">Don't have an account? <a href="/register">Sign up</a></p>
+					</div>
+					<div class="text-center mt-3">
+						<p class="text-muted">
+							<a href="/forgot-password">Forgot your password?</a>
+						</p>
 					</div>
 				</div>
 			</div>

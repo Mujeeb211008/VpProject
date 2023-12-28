@@ -1,0 +1,225 @@
+﻿@layout UserLayout
+@page "/listing"
+@using DataAccessLayer;
+@inject NavigationManager nm
+
+<div class="row mt-5">
+	<div class="col-lg-6 offset-lg-3">
+		<div class="card shadow">
+			<div class="card-body">
+			<h1>Please fill the form</h1>
+				<div>
+					@*<label for="makeDropdown">Make:</label>*@
+					<select class="form-control mb-2" id="makeDropdown" @bind="modelListing.Make" @bind:after="OnMakeChange">
+						<option value="" selected>Select Make</option>
+
+						@foreach (var make in makes)
+						{
+							<option value="@make.MakeId.ToString()">
+								@make.MakeName
+								
+							</option>
+						}
+					</select>
+				</div>
+
+				<div>
+					@*<label for="modelDropdown">Model:</label>*@
+					<select class="form-control mb-2" id="modelDropdown" @bind="modelListing.Model" @bind:after="OnModelChange">
+						<option value="">Select Model</option>
+						@foreach (var model in models)
+						{
+							<option value="@model.ModelId.ToString()">
+								@model.ModelName
+								
+							</option>
+						}
+					</select>
+				</div>
+
+				<div>
+					@*<label for="variantDropdown">Variant:</label>@**@
+					<select class="form-control mb-2" id="variantDropdown" @bind=modelListing.Variant>
+						<option value="">Select Variant</option>
+						@foreach (var variant in variants)
+						{
+							<option value="@variant.VariantId.ToString()">
+								@variant.VariantName
+								
+							</option>
+						}
+					</select>
+				</div>
+				
+				<div>
+					@*<label for="yearDropdown">Select Year:</label>*@
+					<select class="form-control mb-2" id="yearDropdown" @bind="modelListing.Year">
+						<option value="">Select Year</option>
+						@for (int year = DateTime.Now.Year; year >= 1886; year--)
+						{
+							<option value="@year">@year</option>
+						}
+					</select>
+				</div>
+
+				
+				<div>
+					
+					<select class="form-control mb-2" id="categoryDropdown" @bind=modelListing.Category>
+						<option value="" selected>Select Category</option>
+						<option value="Convertible">Convertible</option>
+						<option value="Coupe">Coupe</option>
+						<option value="Hatchback">Hatchback</option>
+						<option value="Sedan">Sedan</option>
+						<option value="SUV">SUV</option>
+						<option value="Truck">Truck</option>
+						<option value="Van">Van</option>
+						<option value="Wagon">Wagon</option>
+						<!-- Add more categories as needed -->
+					</select>
+				</div>
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Mileage" @bind=modelListing.Mileage />
+				</div>
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter VIN" @bind=modelListing.VIN />
+				</div>
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Registration Number" @bind=modelListing.RegNo />
+				</div>
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Engine Displacement" @bind=modelListing.EngineDisp />
+				</div>
+				<div>
+					
+					<select id="engineCylDropdown" class="form-control mb-2" @bind="modelListing.EngineCyl">
+						<option value="">Number of Cylinders</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="8">8</option>
+						<option value="10">10</option>
+						<option value="12">12</option>
+						<option value="14">14</option>
+						<option value="16">16</option>
+						<option value="48">48</option>
+					</select>
+				</div>
+
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Drivetrain" @bind=modelListing.Drivetrain />
+				</div>
+				<div>
+					<select id="transmissionDropdown" class="form-control mb-2" @bind="modelListing.Transmission">
+						<option value="">Select Transmission</option>
+						<option value="Manual">Manual</option>
+						<option value="Automatic">Automatic</option>
+						<option value="Semi-Automatic">Semi-Automatic</option>
+						<option value="EV Transmission">EV Transmission</option>
+					</select>
+				</div>
+
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Color" @bind=modelListing.Color />
+				</div>
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Description" @bind=modelListing.Description />
+				</div>
+				<div>
+					<label for="reserveCondCheckbox">Reserve Condition:</label>
+					<input id="reserveCondCheckbox" type="checkbox" @bind="modelListing.ReserveCond" />
+				</div>
+
+				<div>
+					<input type="text" class="form-control mb-2" placeholder="Enter Reserve Amount" @bind=modelListing.ReserveAmt />
+				</div>
+				<button @onclick="saveListing" class="btn btn-primary btn-lg">Save</button>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+@code {
+
+
+
+	ModelListing modelListing { get; set; } = new ModelListing();
+	string lastid;
+
+	private void saveListing()
+	{
+		modelListing.Make=DalListing.GetMakeName(modelListing.Make);
+		modelListing.Model = DalListing.GetModelName(modelListing.Model);
+		modelListing.Variant = DalListing.GetVariantName(modelListing.Variant);
+		DalListing.SaveListing(modelListing);
+		lastid = DalListing.LastListing();
+		nm.NavigateTo($"upload/{lastid}");
+	}
+
+	public List<ModelMake> makes = new List<ModelMake>();
+	public List<ModelModel> models = new List<ModelModel>();
+	public List<ModelVariant> variants = new List<ModelVariant>();
+	public string? selectedMakeId;
+	public string? selectedModelId;
+
+	protected override void OnInitialized()
+	{
+		// Load initial make data
+		makes = DalMakeList.GetAllMakes();
+	}
+
+	private void OnMakeChange()
+	{
+		OnModelChange();
+		// Handle make selection change
+		if (!string.IsNullOrEmpty(modelListing.Make))
+		{
+			// Load model data based on the selected make
+			models = DalMakeList.GetModelsByMakeId(Convert.ToInt32(modelListing.Make));
+		}
+		else
+		{
+			// Clear model dropdown when no make is selected
+			models.Clear();
+		}
+
+		modelListing.Model = "";
+		modelListing.Variant = "";
+
+		StateHasChanged();
+	}
+
+	private void OnModelChange()
+	{
+		// Handle model selection change
+		if (!string.IsNullOrEmpty(modelListing.Model))
+		{
+			// Load variant data based on the selected model
+			variants = DalMakeList.GetVariantsByModelId(Convert.ToInt32(modelListing.Model));
+		}
+		else
+		{
+			// Clear variant dropdown when no model is selected
+			variants.Clear();
+		}
+
+		modelListing.Variant = "";
+
+		StateHasChanged();
+	}
+
+	protected override void OnParametersSet()
+	{
+		// Ensure the dropdowns are updated when the data changes
+		StateHasChanged();
+	}
+}

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="images\" />
+    <Folder Include="Admin\" />
   </ItemGroup>
 
   <ItemGroup>

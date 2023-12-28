@@ -7,12 +7,14 @@
 
 <PageTitle>UserInterface</PageTitle>
 
+
+
 <div class="page">
-            <div class="sidebar">
-                <NavMenu />
-            </div>
+            
     
-    
+    <div class="sidebar">
+        <NavMenu/>
+    </div>
 
 
     <main>
@@ -21,7 +23,6 @@
 
             <AuthorizeView>
                 <Authorized>
-                   Welcome :  @context.User.Identity.Name
                     <a href="javascript:void(0)" @onclick="Logout">Logout</a>
                 </Authorized>
                 <NotAuthorized>
@@ -31,6 +32,7 @@
             </AuthorizeView>
         </div> *@
 
+        
         <div class="top-row px-4 bg-black ">
             <div class="left-section">
                 <!-- Add your two buttons here -->
@@ -54,8 +56,7 @@
                 </AuthorizeView>
             </div>
         </div>
-
-
+        
         <article class="content px-4">
             @Body
         </article>

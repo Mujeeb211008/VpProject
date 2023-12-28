@@ -1,0 +1,69 @@
+﻿@layout UserLayout
+@page "/DropDown"
+@using DataAccessLayer;
+
+
+<div>
+    <label for="countryDropdown">Country:</label>
+    <select id="countryDropdown" @bind="selectedCountryId" @bind:after="OnCountryChange">
+        <option value="" selected>Select Country</option>
+        
+        @foreach (var country in countries)
+        {
+            <option value="@country.CountryId.ToString()">
+                @country.CountryName
+                @country.CountryId
+            </option>
+        }
+    </select>
+</div>
+
+
+
+<div>
+    <label for="cityDropdown">City:</label>
+    <select id="cityDropdown">
+        <option value="">Select City</option>
+        @foreach (var city in cities)
+        {
+            <option value="@city.CityId">@city.CityName</option>
+        }
+    </select>
+</div>
+
+@code {
+    public List<ModelCountry> countries = new List<ModelCountry>();
+    public List<ModelCity> cities = new List<ModelCity>();
+    public string? selectedCountryId;
+
+    protected override void OnInitialized()
+    {
+        // Load initial country data
+        countries = DalDropDown.GetAllCountries();
+        
+    }
+
+    private void OnCountryChange()
+    {
+        //selectedCountryId = "7";
+        // Handle country selection change
+        if (!string.IsNullOrEmpty(selectedCountryId))
+        {
+            // Load city data based on the selected country
+            cities = DalDropDown.GetCityData(selectedCountryId);
+        }
+        else
+        {
+            // Clear city dropdown when no country is selected
+            cities.Clear();
+        }
+
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Ensure the cityDropdown is updated when the cities list changes
+        StateHasChanged();
+    }
+}

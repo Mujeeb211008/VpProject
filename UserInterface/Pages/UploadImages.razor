@@ -1,0 +1,8 @@
+﻿@layout UserLayout
+@page "/upload1"
+@page "/upload1/{CarId}"
+<FileUpload></FileUpload>
+
+@code {
+	[Parameter] public string CarId { get; set; }
+}

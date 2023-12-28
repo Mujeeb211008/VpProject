@@ -85,3 +85,4 @@ C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserI
 C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\UserInterface.genruntimeconfig.cache
 C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\ref\UserInterface.dll
 C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\UserLayout.razor.rz.scp.css
+C:\Users\najee\OneDrive\Desktop\CarsAndBids\UserInterface\obj\Debug\net7.0\scopedcss\Shared\AdminLayout.razor.rz.scp.css

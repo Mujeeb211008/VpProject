@@ -1,0 +1,130 @@
+﻿@layout UserLayout
+@page "/view/{CarId}"
+@using ModelLayer
+@using DataAccessLayer
+@inject NavigationManager NavigationManager
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            @if (carDetails != null)
+            {
+                <h3 class="fw-bolder">
+                    @carDetails.Year @carDetails.Make @carDetails.Model @carDetails.Variant
+                </h3>
+                <p>@carDetails.Description</p>
+                <p id="countdownClock">@countdownClockText</p>
+
+            }
+        </div>
+        <div class="col-lg-4">
+            <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-danger btn-sm ">Watch </button>
+                <button class="btn btn-primary btn-sm ">Share</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="@carImages[0].ImagePath" alt="@carImages[0].ImageName" class="img-fluid" />
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                @for (int i = 1; i < carImages.Count; i++)
+                {
+                    <div class="col-lg-6 mb-3">
+                        <a href="largeimage/@carImages[i].ImagePath">
+                            <img src="@carImages[i].ImagePath" alt="@carImages[i].ImageName" class="img-fluid" />
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Larger Image -->
+        @if (carImages.Any())
+        {
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <a href="largeimage/@carImages[0].ImagePath"></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string CarId { get; set; }
+    private ModelListing carDetails;
+    private List<ModelImage> carImages;
+    private int countdownSeconds = 10;
+    private string countdownClockText = "10s";
+        private Timer timer;
+
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        LoadCarDetails();
+        LoadCarImages();
+
+        // Start the countdown timer
+        var timer = new System.Timers.Timer(1000);
+        timer.Elapsed += (sender, e) => UpdateCountdown();
+        timer.Start();
+    }
+
+    private void LoadCarDetails()
+    {
+        carDetails = DalListing.GetListingByCarId(CarId);
+    }
+
+    private void LoadCarImages()
+    {
+        carImages = DalImage.GetImage(CarId);
+    }
+
+    private void UpdateCountdown()
+    {
+        if (countdownSeconds > 0)
+        {
+            countdownSeconds--;
+
+            // Update the countdown display
+            InvokeAsync(() =>
+            {
+                // Set the text of the countdownClock element
+                countdownClockText = $"{countdownSeconds}s";
+            });
+        }
+        else
+        {
+            // Countdown reached 0, perform any action needed
+            Console.WriteLine("Countdown reached 0!");
+        }
+    }
+
+
+    private void Share()
+    {
+        // Implement share functionality
+        // You can use NavigationManager.ToAbsoluteUri(NavigationManager.Uri) to get the current page URL
+        // Then, you can display it or use it as needed
+        var currentUrl = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        // Implement the logic to share the current URL
+        // For example, you can display a message with the URL
+        // or copy it to the clipboard (if possible)
+        Console.WriteLine($"Sharing: {currentUrl}");
+    }
+
+    private void Save()
+    {
+        // Implement save functionality
+        // For example, you can save the current car details to a user's saved list
+        // or perform any other save-related action
+        Console.WriteLine("Save button clicked");
+    }
+}

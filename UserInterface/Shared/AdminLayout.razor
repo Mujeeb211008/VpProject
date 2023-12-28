@@ -1,0 +1,58 @@
+﻿@using UserInterface.Auth
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager nm
+
+
+
+<PageTitle>UserInterface</PageTitle>
+
+<div class="page">
+    <main>
+        <div class="sidebar">
+            
+                    <UserMenu />
+               
+        </div>
+
+        <div class="content-wrapper">
+            <article class="content px-4">
+                @Body
+            </article>
+        </div>
+    </main>
+
+    <div class="bottom-nav px-4 bg-black">
+        <div class="left-section">
+            <!-- Add your two buttons here -->
+            <a class="text-white">Auctions</a>
+            <a href="">Sell</a>
+        </div>
+        <div class="center-section">
+            <!-- Add your project name here -->
+            <h1 class="text-white">Cars & Bids</h1>
+        </div>
+        <div class="right-section">
+            <AuthorizeView>
+                <Authorized>
+                    Welcome: @context.User.Identity.Name
+                    <a href="javascript:void(0)" @onclick="Logout">Logout</a>
+                </Authorized>
+                <NotAuthorized>
+                    <a href="Register">Register</a>
+                    <a href="login">Login</a>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private async void Logout()
+    {
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+        await customAuthStateProvider.UpdateAuthenticatinoState(null);
+        nm.NavigateTo("/", true);
+    }
+}

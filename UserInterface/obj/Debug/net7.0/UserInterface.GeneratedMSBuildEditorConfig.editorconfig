@@ -24,28 +24,64 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXV0aFxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Auth/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = QXV0aFxMb2dvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/EndingSoon.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW5kaW5nU29vbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/Listing.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/NewTesting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3VGVzdGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/Reuseable/FileUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV1c2VhYmxlXEZpbGVVcGxvYWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/TestingDropDown.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdGluZ0Ryb3BEb3duLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/UpdateUserInfo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlVXNlckluZm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/UploadImages.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBsb2FkSW1hZ2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/UserInfo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckluZm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Pages/View.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/CustomAuthorizeRouteView.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEN1c3RvbUF1dGhvcml6ZVJvdXRlVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/NewLayout.razor]
@@ -64,9 +100,17 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVzZXJNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/UserNavbar.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFVzZXJOYXZiYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/AdminLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFkbWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-kyaqxxnep4
 
 [C:/Users/najee/OneDrive/Desktop/CarsAndBids/UserInterface/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

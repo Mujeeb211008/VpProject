@@ -1,0 +1,101 @@
+﻿@layout UserLayout
+@page "/new"
+@using DataAccessLayer;
+@using ModelLayer;
+
+<div>
+    <label for="makeDropdown">Make:</label>
+    <select id="makeDropdown" @bind="selectedMakeId" @bind:after="OnMakeChange">
+        <option value="" selected>Select Make</option>
+
+        @foreach (var make in makes)
+        {
+            <option value="@make.MakeId.ToString()">
+                @make.MakeName
+                @make.MakeId
+            </option>
+        }
+    </select>
+</div>
+
+<div>
+    <label for="modelDropdown">Model:</label>
+    <select id="modelDropdown" @bind="selectedModelId" @bind:after="OnModelChange">
+        <option value="">Select Model</option>
+        @foreach (var model in models)
+        {
+            <option value="@model.ModelId.ToString()">
+                @model.ModelName
+                @model.ModelId
+            </option>
+        }
+    </select>
+</div>
+
+<div>
+    <label for="variantDropdown">Variant:</label>
+    <select id="variantDropdown">
+        <option value="">Select Variant</option>
+        @foreach (var variant in variants)
+        {
+            <option value="@variant.VariantId.ToString()">
+                @variant.VariantName
+                @variant.VariantId
+            </option>
+        }
+    </select>
+</div>
+
+@code {
+    public List<ModelMake> makes = new List<ModelMake>();
+    public List<ModelModel> models = new List<ModelModel>();
+    public List<ModelVariant> variants = new List<ModelVariant>();
+    public string? selectedMakeId;
+    public string? selectedModelId;
+
+    protected override void OnInitialized()
+    {
+        // Load initial make data
+        makes = DalMakeList.GetAllMakes();
+    }
+
+    private void OnMakeChange()
+    {
+        // Handle make selection change
+        if (!string.IsNullOrEmpty(selectedMakeId))
+        {
+            // Load model data based on the selected make
+            models = DalMakeList.GetModelsByMakeId(Convert.ToInt32(selectedMakeId));
+        }
+        else
+        {
+            // Clear model dropdown when no make is selected
+            models.Clear();
+        }
+
+        StateHasChanged();
+    }
+
+    private void OnModelChange()
+    {
+        // Handle model selection change
+        if (!string.IsNullOrEmpty(selectedModelId))
+        {
+            // Load variant data based on the selected model
+            variants = DalMakeList.GetVariantsByModelId(Convert.ToInt32(selectedModelId));
+        }
+        else
+        {
+            // Clear variant dropdown when no model is selected
+            variants.Clear();
+        }
+
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        // Ensure the dropdowns are updated when the data changes
+        StateHasChanged();
+    }
+}

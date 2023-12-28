@@ -1,0 +1,163 @@
+﻿@layout UserLayout
+@page "/endingsoon"
+@using ModelLayer
+@using DataAccessLayer
+
+
+<div class="container" style="padding-top: 20px;">
+    
+    <div class="row">
+        <div class="col">
+            <h3>Auctions</h3>
+        </div>
+    
+
+    
+        <!-- Year Filter Dropdown -->
+        <div class="col mb-2">
+            
+            <select class="form-control" id="yearFilter" @bind="selectedYear" @bind:after="loadListing">
+                <option value="-1">Years</option>
+                @for (int year = DateTime.Now.Year; year >= 1886; year--)
+                {
+                    <option value="@year">@year</option>
+                }
+            </select>
+        </div>
+
+        <div class="col mb-4">
+            
+            <select class="form-control" id="categoryDropdown" @bind="selectedCategory" @bind:after="loadListing">
+                <option value="">Body Style</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Hatchback">Hatchback</option>
+
+                <option value="Coupe">Coupe</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+
+        <div class="col mb-4">
+            
+            <select class="form-control" id="transmissionDropdown" @bind="selectedTransmission" @bind:after="loadListing">
+                <option value="">Transmission</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Semi-Automatic">Semi-Automatic</option>
+                <option value="EV Transmission">EV Transmission</option>
+                <!-- Add more transmissions as needed -->
+            </select>
+        </div>
+    </div>
+    
+    <!-- Listings Section -->
+    <div class="row">
+        @if (modelListing != null && modelListing.Any())
+        {
+            @foreach (var item in modelListing)
+            {
+                GetImages(item.CarId);
+                <a class="col-lg-3 mb-4" style="text-decoration: none; color: black;" href="view/@item.CarId">
+                        <div class="card" style="height: 100%; position: relative;">
+                            <img src="@currentImagePath" alt="Car Image" style="height: 200px; object-fit: cover;" />
+
+                            <div class="card-body" >
+                            <h3>@item.Make @item.Model @item.Variant</h3>
+                            <p >@item.Category</p>
+                                <p>@item.Description</p>
+                                
+                            </div>
+                        </div>
+                    </a>
+            }
+        }
+        else
+        {
+            <div class="row justify-content-center mb-8">
+                <div class="col-lg-12">
+                    <p style="font-size: 50px;">Your search did not return any results.</p>
+                </div>
+            </div>
+        }
+</div>
+
+
+
+</div>
+
+@code {
+
+    List<ModelListing> modelListing { get; set; } = new List<ModelListing>();
+    int selectedYear { get; set; }
+    string selectedCategory { get; set; }
+    string selectedTransmission { get; set; }
+    List<string> stringList = new List<string>();
+    string currentCarId { get; set; }
+    string currentImagePath { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        selectedYear = -1;
+        loadListing();
+    }
+
+    private void GetImages(string currentCarId)
+    {
+        // Call the GetFirstImage function for each car and bind the result
+        ModelImage image = DalImage.GetFirstImage(currentCarId);
+
+        // Save the image path in currentImagePath
+        currentImagePath = image != null ? image.ImagePath : "";
+    }
+
+    private void loadListing()
+    {
+        if (selectedYear == -1 && string.IsNullOrEmpty(selectedCategory) && string.IsNullOrEmpty(selectedTransmission))
+        {
+            // No filters selected
+            modelListing = DalListing.GetListings();
+        }
+        else if (selectedYear == -1 && !string.IsNullOrEmpty(selectedCategory) && string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Only category filter selected
+            modelListing = DalListing.GetListings(selectedCategory: selectedCategory);
+        }
+        else if (selectedYear != -1 && string.IsNullOrEmpty(selectedCategory) && string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Only year filter selected
+            modelListing = DalListing.GetListings(selectedYear: selectedYear);
+        }
+        else if (selectedYear != -1 && !string.IsNullOrEmpty(selectedCategory) && string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Both year and category filters selected
+            modelListing = DalListing.GetListings(selectedYear: selectedYear, selectedCategory: selectedCategory);
+        }
+        else if (selectedYear == -1 && string.IsNullOrEmpty(selectedCategory) && !string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Only transmission filter selected
+            modelListing = DalListing.GetListings(selectedTransmission: selectedTransmission);
+        }
+        else if (selectedYear == -1 && !string.IsNullOrEmpty(selectedCategory) && !string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Category and transmission filters selected
+            modelListing = DalListing.GetListings(selectedCategory: selectedCategory, selectedTransmission: selectedTransmission);
+        }
+        else if (selectedYear != -1 && string.IsNullOrEmpty(selectedCategory) && !string.IsNullOrEmpty(selectedTransmission))
+        {
+            // Year and transmission filters selected
+            modelListing = DalListing.GetListings(selectedYear: selectedYear, selectedTransmission: selectedTransmission);
+        }
+        else
+        {
+            // All filters selected
+            modelListing = DalListing.GetListings(selectedYear: selectedYear, selectedCategory: selectedCategory, selectedTransmission: selectedTransmission);
+        }
+
+ 
+    }
+
+    
+
+}

@@ -1,0 +1,38 @@
+﻿@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager nm
+@using UserInterface.Auth
+
+
+
+
+<div>
+    <AuthorizeView>
+        <Authorized>
+            <span class="text-light">Welcome: @context.User.Identity.Name</span>
+            <a href="javascript:void(0)" @onclick="GotoListing" class="btn btn-warning">Add Post</a>
+            <a href="javascript:void(0)" @onclick="SignOut" class="btn btn-light">Logout</a>
+        </Authorized>
+        <NotAuthorized>
+            <a href="login" class="btn btn-dark me-2">Login</a>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+@code {
+
+
+
+
+    private async void SignOut()
+    {
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+        await customAuthStateProvider.UpdateAuthenticatinoState(null);
+        nm.NavigateTo("/", true);
+    }
+
+    private void GotoListing()
+    {
+        nm.NavigateTo("/listing");
+    }
+
+}

@@ -1,0 +1,195 @@
+﻿@layout UserLayout
+@page "/upload"
+@page "/upload/{CarId}"
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+@using System.IO
+@using DataAccessLayer
+@inject IWebHostEnvironment env
+@inject IJSRuntime JSRuntime
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        
+    }
+
+    h1, h3 {
+        color: #333;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+  
+</style>
+
+@foreach (var image in images)
+{
+    <img src="@image.ImagePath" alt="Uploaded Image" />
+}
+
+
+
+<button @onclick="GetImages">Click to Load Your Image</button>
+
+<h1>Blazor Server File Upload</h1>
+
+<h3>@Message</h3>
+
+<form @onsubmit="OnSubmit">
+    <InputFile OnChange="OnInputFileChange" multiple />
+    <br />
+    <br />
+
+    @if (AreFilesValid())
+    {
+        <button type="submit">Upload Selected File(s)</button>
+    }
+    else
+    {
+        <span>Please select only JPG, JPEG, PNG, or GIF files.</span>
+    }
+</form>
+
+@code {
+
+    [Parameter] public string CarId { get; set; }
+
+    private string UId { get; set; }
+    private IReadOnlyList<IBrowserFile> selectedFiles;
+    private List<string> allowedExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+    private bool filesValid = true;
+
+    private string Message = ""; // Declare the Message variable
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        UId = authState.User.FindFirst("UserId")?.Value;
+    }
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        selectedFiles = e.GetMultipleFiles();
+
+        // Validate file extensions
+        filesValid = selectedFiles.All(IsFileExtensionAllowed);
+
+        if (filesValid)
+        {
+            Message = $"{selectedFiles.Count} file(s) selected";
+        }
+        else
+        {
+            Message = "Please select only JPG, JPEG, PNG, or GIF files.";
+        }
+
+        this.StateHasChanged();
+    }
+
+    private bool IsFileExtensionAllowed(IBrowserFile file)
+    {
+        // Get the file extension (e.g., ".jpg")
+        string fileExtension = Path.GetExtension(file.Name);
+
+        // Check if the file extension is in the allowed list
+        return allowedExtensions.Contains(fileExtension, StringComparer.OrdinalIgnoreCase);
+    }
+
+    private bool AreFilesValid()
+    {
+        return filesValid && selectedFiles != null && selectedFiles.Count > 0;
+    }
+
+    ModelImage newImage=new ModelImage();
+
+    private async Task OnSubmit()
+    {
+        foreach (var file in selectedFiles)
+        {
+            // Generate a unique filename using user ID and photo GUID
+            Guid photoGuid = Guid.NewGuid();
+            string uniqueFileName = $"{CarId}_{photoGuid}{Path.GetExtension(file.Name)}";
+
+            // Construct the path to D:\Images
+            var path = $"{env.WebRootPath}\\stuff\\{uniqueFileName}";
+            string ImgUrl = $"stuff/{uniqueFileName}";
+
+            newImage.ImageName = uniqueFileName;
+            newImage.ImagePath = ImgUrl;
+            newImage.CarId = CarId;
+            DalImage.SaveImages(newImage);
+
+            // Save the file with the unique filename
+            using (var stream = file.OpenReadStream(maxAllowedSize: 1000000))
+            using (var fs = File.Create(path))
+            {
+                await stream.CopyToAsync(fs);
+            }
+
+
+        }
+
+        Message = $"{selectedFiles.Count} File(s) uploaded successfully";
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+    
+        this.StateHasChanged();
+    }
+
+    List<ModelImage> images = new List<ModelImage>();
+
+    private void GetImages()
+    {
+        images = DalImage.GetImage(CarId);
+    }
+
+
+}
+<!--
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="exteriorInput">Upload Exterior Photos:</label>
+    <input type="file" id="exteriorInput" name="exteriorPhotos" accept=".jpg, .jpeg, .png" multiple>
+
+
+    <label for="interiorInput">Upload Interior Photos:</label>
+    <input type="file" id="interiorInput" name="interiorPhotos" accept=".jpg, .jpeg, .png" multiple>
+
+
+    <label for="mechanicsInput">Upload Mechanics Photos:</label>
+    <input type="file" id="mechanicsInput" name="mechanicsPhotos" accept=".jpg, .jpeg, .png" multiple>
+
+
+    <label for="docsInput">Upload Documents:</label>
+    <input type="file" id="docsInput" name="documentFiles" accept=".pdf, .doc, .docx" multiple>
+
+
+    <button type="submit">Upload Photos and Documents</button>
+</form>
+   !-->
