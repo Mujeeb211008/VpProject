@@ -193,8 +193,9 @@ namespace DataAccessLayer
                 ml.Drivetrain = sqlDataReader["Drivetrain"].ToString();
                 ml.Transmission = sqlDataReader["Transmission"].ToString();
                 ml.Color = sqlDataReader["Color"].ToString();
-                ml.CreatedAt = sqlDataReader["CreatedAt"].ToString();
-                ml.EndingAt = sqlDataReader["EndingAt"].ToString();
+                ml.CreatedAt = sqlDataReader["CreatedAt"] == DBNull.Value ? (DateTime?)null : (DateTime)sqlDataReader["CreatedAt"];
+                ml.EndingAt = sqlDataReader["EndingAt"] == DBNull.Value ? (DateTime?)null : (DateTime)sqlDataReader["EndingAt"];
+
                 Listings.Add(ml);
             }
 
@@ -235,8 +236,8 @@ namespace DataAccessLayer
                     ml.Drivetrain = sqlDataReader["Drivetrain"].ToString();
                     ml.Transmission = sqlDataReader["Transmission"].ToString();
                     ml.Color = sqlDataReader["Color"].ToString();
-                    ml.CreatedAt = sqlDataReader["CreatedAt"].ToString();
-                    ml.EndingAt = sqlDataReader["EndingAt"].ToString();
+                    ml.CreatedAt = sqlDataReader["CreatedAt"] == DBNull.Value ? (DateTime?)null : (DateTime)sqlDataReader["CreatedAt"];
+                    ml.EndingAt = sqlDataReader["EndingAt"] == DBNull.Value ? (DateTime?)null : (DateTime)sqlDataReader["EndingAt"];
                     con.Close();
                     return ml;
                 }

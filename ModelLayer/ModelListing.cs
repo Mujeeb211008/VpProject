@@ -38,8 +38,8 @@ namespace ModelLayer
 
         public string? Color { get; set; }
 
-        public string? CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
-        public string? EndingAt { get; set; }
+        public DateTime? EndingAt { get; set; }
     }
 }

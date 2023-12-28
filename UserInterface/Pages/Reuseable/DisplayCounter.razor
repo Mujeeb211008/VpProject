@@ -1,0 +1,35 @@
+﻿<!-- CountdownComponent.razor -->
+@inherits ComponentBase
+
+<div>
+    @if (remainingTime?.TotalSeconds > 0 && remainingTime != null)
+    {
+        <p>Time Remaining: @FormatRemainingTime(remainingTime.Value)</p>
+    }
+    else
+    {
+        <p>Auction Ended</p>
+    }
+</div>
+
+@code {
+    [Parameter] public DateTime? EndingAt { get; set; }
+
+    private TimeSpan? remainingTime;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        CalculateRemainingTime();
+    }
+
+    private void CalculateRemainingTime()
+    {
+        remainingTime = EndingAt - DateTime.Now;
+    }
+
+    private string FormatRemainingTime(TimeSpan timeSpan)
+    {
+        return $"{timeSpan.Days}d {timeSpan.Hours}h {timeSpan.Minutes}m {timeSpan.Seconds}s";
+    }
+}
