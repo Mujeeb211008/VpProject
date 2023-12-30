@@ -1,10 +1,12 @@
 ﻿<!-- CountdownComponent.razor -->
+@using System.Timers
+
 @inherits ComponentBase
 
 <div>
     @if (remainingTime?.TotalSeconds > 0 && remainingTime != null)
     {
-        <p>Time Remaining: @FormatRemainingTime(remainingTime.Value)</p>
+        <p>Auction ends in: @FormatRemainingTime(remainingTime.Value)</p>
     }
     else
     {
@@ -16,20 +18,40 @@
     [Parameter] public DateTime? EndingAt { get; set; }
 
     private TimeSpan? remainingTime;
+    private Timer timer;
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
         CalculateRemainingTime();
+        StartTimer();
+    }
+
+    private void StartTimer()
+    {
+        timer = new Timer(1000); // Update every 1000 milliseconds (1 second)
+        timer.Elapsed += (sender, e) => { InvokeAsync(CalculateRemainingTime); };
+        timer.Start();
     }
 
     private void CalculateRemainingTime()
     {
         remainingTime = EndingAt - DateTime.Now;
+        StateHasChanged();
     }
 
     private string FormatRemainingTime(TimeSpan timeSpan)
     {
         return $"{timeSpan.Days}d {timeSpan.Hours}h {timeSpan.Minutes}m {timeSpan.Seconds}s";
+    }
+
+    // Dispose the timer to avoid memory leaks
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Stop();
+            timer.Dispose();
+        }
     }
 }

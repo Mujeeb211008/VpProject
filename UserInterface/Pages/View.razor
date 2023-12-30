@@ -13,12 +13,10 @@
 					@carDetails.Year @carDetails.Make @carDetails.Model @carDetails.Variant
 				</h3>
 				<p>@carDetails.Description</p>
-				<p>@carDetails.EndingAt</p>
-				@if(carDetails.EndingAt!=null)
-				{
-					<DisplayCounter EndingAt="@carDetails.EndingAt" />
 
-				}
+				<DisplayCounter EndingAt="@carDetails.EndingAt" />
+
+
 
 			}
 		</div>
@@ -59,9 +57,7 @@
 		}
 	</div>
 </div>
-<h1>
-	@Counter
-</h1>
+
 @code {
 	[Parameter] public string CarId { get; set; }
 	private ModelListing carDetails;
@@ -86,8 +82,6 @@
 			await UpdateCounter();
 
 		}
-		// Start the countdown timer
-
 	}
 
 	private void LoadCarDetails()
